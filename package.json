@@ -45,5 +45,5 @@
   },
   "scripts": {
     "postinstall": "npm rebuild node-sass"
-  },
+  }
 }
