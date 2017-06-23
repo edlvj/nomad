@@ -1,0 +1,32 @@
+.tabs .indicator { 
+  background-color: #b1dcfb;
+}
+
+.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active {
+    color: #0089ec !important;
+}
+
+.padd {
+  min-height: 220px;
+  max-height: 250px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+.card-profile-image {
+    width: 110px;
+    position: absolute;
+    top: 190px;
+    z-index: 1;
+    left: 40px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.collection {
+	border: none !important;
+}
+
+.collection .collection-item {
+	border-bottom: none !important;
+}

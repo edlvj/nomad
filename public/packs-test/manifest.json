@@ -1,0 +1,6 @@
+{
+  "application.js": "/packs-test/application.js",
+  "routes.js": "/packs-test/routes.js",
+  "stores.js": "/packs-test/stores.js",
+  "translation.js": "/packs-test/translation.js"
+}

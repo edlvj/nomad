@@ -4,13 +4,13 @@ class Ability
   def initialize(user)
     user ||= User.new
     
-    can :read, [Country, City]
+    can :read, [City, User, Topic]
     if user.persisted?
-      can :update, [User]
+      can :create, [Favorite, Topic, Comment, Rating]
       if user.admin?
         can :access, :rails_admin
         can :dashboard
-        can :manage, [Country, City, User]
+        can :manage, [Region, Country, City, User, Topic, Comment, Rating, Favorite]
       end
     end
   end

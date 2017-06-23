@@ -3,6 +3,8 @@ RSpec.describe City, type: :model do
   
   context 'association' do
     it { should belong_to :country }
+    it { should have_many(:topic) }
+    it { should have_one(:rating) }
   end
   
   context 'validation' do
