@@ -26,5 +26,8 @@ Country.find_each do |country|
 end
 
 City.find_each do |city|
-  Rating.find_or_create_by! city_id:city.id
+  Rating.find_or_create_by! city_id: city.id,
+                            rate: 3,
+                            rate_type: 'fun'
+                            
 end
