@@ -50,7 +50,7 @@ export default {
      
      setTimeout(() => {
           for (let i = this.temp_count; i < this.temp_count + 12; i++) {
-            if(this.list.length - 1 >= i) { 
+            if(this.list.length > i) { 
               this.results.push(this.list[i]);
             } else {
               return this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
