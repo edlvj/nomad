@@ -32,7 +32,7 @@ const i18n = new VueI18n({
   messages: Translate, 
 }) 
 
-Vue.http.options.root = env.NODE_ENV == 'production' ? '' : 'http://bezviz-edlvj.c9users.io/api/v1'
+//Vue.http.options.root = env.NODE_ENV == 'production' ? '' : 'http://bezviz-edlvj.c9users.io/api/v1'
 
 Vue.http.interceptors.push(function(request, next) {
   if(localStorage.access_token) {

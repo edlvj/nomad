@@ -26,28 +26,28 @@ export default {
   },
   actions: {
       all({commit}, context) {
-        context.$http.get('cities').then(response => {
+        context.$http.get('/api/v1/cities').then(response => {
            commit('set', { type: 'results', items: response.data })
         }, response => {
           context.$dialog("Something went wrong");
         });  
       },
       search({commit}, context) {
-        context.$http.get('cities?search=' + context.query).then(response => {
+        context.$http.get('/api/v1/cities?search=' + context.query).then(response => {
            commit('set', { type: 'results', items: response.data })
         }, response => {
           context.$dialog("Something went wrong");
         });  
       },
       getCity({commit}, context) {
-          context.$http.get('cities/' + context.id).then(response => {
+          context.$http.get('/api/v1/cities/' + context.id).then(response => {
              commit('set', { type: 'result', items: response.data })
           }, response => {
             context.$dialog("Something went wrong");
           }); 
       },
       login_social({commit}, context) {
-        context.$http.get('custom/'+ context.provider +'/callback?code=' + context.code).then(response => {
+        context.$http.get('/api/v1/custom/'+ context.provider +'/callback?code=' + context.code).then(response => {
           console.log(response);
           localStorage.setItem('access_token', JSON.stringify(response.data))
           localStorage.setItem('user_id', JSON.stringify(response.data.id))
@@ -55,12 +55,12 @@ export default {
         });
       },
       logout({commit}, context) {
-        context.$http.delete('auth/sign_out').then(response => {
+        context.$http.delete('/api/v1/auth/sign_out').then(response => {
             localStorage.removeItem('access_token');
         });
       },
       getUser({commit}, context) {
-        context.$http.get('users/' + context.id ).then(response => {
+        context.$http.get('/api/v1/users/' + context.id ).then(response => {
           commit('set', { type: 'user', items: response.data })
         }, response => {
           context.$dialog("Something went wrong");
@@ -68,14 +68,14 @@ export default {
       },  
       setFavorite({commit}, context) {
         var fave_params  = { city_id: context.id, visited: context.visited }
-        context.$http.post('favorites', {favorite: fave_params}).then(response => {
+        context.$http.post('/api/v1/favorites', {favorite: fave_params}).then(response => {
           context.$dialog("Added to Favorites");
         }, response => {
           context.$dialog("Something went wrong");
         }); 
       },
       saveTopic({commit}, context) {
-        context.$http.post('topics', context.topic).then(response => {
+        context.$http.post('/api/v1/topics', context.topic).then(response => {
           context.$dialog("topic created");
           context.$router.push('/topic/' + response.data.id );
         }, response => {
@@ -83,7 +83,7 @@ export default {
         });   
       },
       getTopic({commit}, context) {
-        context.$http.get('topics/'+ context.id ).then(response => {
+        context.$http.get('/api/v1/topics/'+ context.id ).then(response => {
           commit('set', { type: 'topic', items: response.data })
         }, response => {
           context.$dialog("Something went wrong");
@@ -91,7 +91,7 @@ export default {
       },
       saveComment({commit}, context) {
         var comment_params = { text: context.text, topic_id: context.topic_id }
-        context.$http.post('comments', { comment: comment_params }).then(response => {
+        context.$http.post('/api/v1/comments', { comment: comment_params }).then(response => {
           context.$dialog("comment created");
         }, response => {
           context.$dialog("Something went wrong");
@@ -99,7 +99,7 @@ export default {
       }, 
       setRate({commit}, context) {
         var rating_params = { city_id: context.city_id, rate: context.rating, rate_type: context.rate_type }
-        context.$http.post('ratings', { rating: rating_params }).then(response => {
+        context.$http.post('/api/v1/ratings', { rating: rating_params }).then(response => {
           context.$dialog("thx for rate");
         }, response => {
           context.$dialog("Something went wrong");
