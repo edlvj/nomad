@@ -22,6 +22,7 @@ export default {
     return {
       results: [],
       temp_count: 0,
+      per_page: 12
     };
   },
   components: {
@@ -49,14 +50,19 @@ export default {
     onInfinite() {
      
      setTimeout(() => {
-          for (let i = this.temp_count; i < this.temp_count + 12; i++) {
+          if(this.list.length <= this.per_page) {
+            this.results = this.list;
+            return this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+          }
+          
+          for (let i = this.temp_count; i < this.temp_count + this.per_page; i++) {
             if(this.list.length > i) { 
               this.results.push(this.list[i]);
             } else {
               return this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
             }  
           }
-        this.temp_count += 12;
+        this.temp_count += this.per_page;
         this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
       }, 1000); 
     },
