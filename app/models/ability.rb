@@ -5,8 +5,9 @@ class Ability
     user ||= User.new
     
     can :read, [City, User, Topic]
+    can :create, Rating
     if user.persisted?
-      can :create, [Favorite, Topic, Comment, Rating]
+      can :create, [Favorite, Topic, Comment]
       if user.admin?
         can :access, :rails_admin
         can :dashboard
