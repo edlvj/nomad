@@ -44,7 +44,7 @@ Vue.http.interceptors.push(function(request, next) {
 });
 
 Vue.prototype.$check = localStorage.access_token ? true : false
-Vue.prototype.$fb_client = env.NODE_ENV == 'production' ? '1896678157266601' : '1325792587499156'
+Vue.prototype.$fb_client = process.env.NODE_ENV == 'development' ? '1325792587499156' : '1896678157266601' 
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('app'));
