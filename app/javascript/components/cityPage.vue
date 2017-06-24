@@ -62,7 +62,7 @@ export default {
         this.visited = type;
         this.$store.dispatch('setFavorite', this);
       } else {
-        context.$dialog("Please login");
+        this.$dialog("Please login");
       }
     },
   }

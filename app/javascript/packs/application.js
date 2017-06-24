@@ -32,8 +32,6 @@ const i18n = new VueI18n({
   messages: Translate, 
 }) 
 
-//Vue.http.options.root = env.NODE_ENV == 'production' ? '' : 'http://bezviz-edlvj.c9users.io/api/v1'
-
 Vue.http.interceptors.push(function(request, next) {
   if(localStorage.access_token) {
       var tokens = JSON.parse(localStorage.access_token);
@@ -46,7 +44,7 @@ Vue.http.interceptors.push(function(request, next) {
 });
 
 Vue.prototype.$check = localStorage.access_token ? true : false
-
+Vue.prototype.$fb_client = env.NODE_ENV == 'production' ? '1896678157266601' : '1325792587499156'
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('app'));

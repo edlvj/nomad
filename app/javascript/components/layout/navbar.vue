@@ -22,6 +22,7 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {
@@ -40,10 +41,9 @@ export default {
     methods: {
       social(provider) {
         if(this.provider == 'facebook') {
-            var client_id = '1325792587499156'
             var host = new URL(window.location.href).hostname
             var redirect_uri = 'http://'  + host;
-            window.location = 'https://www.facebook.com/v2.5/dialog/oauth?client_id='+ client_id +'&redirect_uri='+ redirect_uri +'&response_type=code';  
+            window.location = 'https://www.facebook.com/v2.5/dialog/oauth?client_id='+ this.$fb_client +'&redirect_uri='+ redirect_uri +'&response_type=code';  
         }
       },
       logout() {

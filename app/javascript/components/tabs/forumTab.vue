@@ -11,8 +11,8 @@
       </p>
     </li>
   </ul>	
-  <div class="center-align"> 
-    <router-link class="btn waves-effect waves-light" :to="'/city/' + this.city_id +'/topic/new'">Створити нову тему</router-link>
+  <div class="center-align" v-if="$check"> 
+    <router-link  class="btn waves-effect waves-light" :to="'/city/' + this.city_id +'/topic/new'">Створити нову тему</router-link>
   </div>  
 </div>    
 </template>    
