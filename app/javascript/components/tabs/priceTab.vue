@@ -8,7 +8,7 @@
             <td>{{ $t('tabs.price.airbnb') }}</td>
     		    <td><a :href="price.airbnb.url ">{{ price.airbnb.price }} UAH</a></td>
     		    <td>{{ $t('tabs.price.meal') }}</td>
-    		    <td><a :href="price.meal.url ">{{ price.meal.price }} </a></td>
+    		    <td><a :href="price.meal.url ">{{ price.meal.price }} EUR</a></td>
           </tr>
     	    <tr>
             <td>{{ $t('tabs.price.fin_req') }}</td>

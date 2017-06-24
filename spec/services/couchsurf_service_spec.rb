@@ -5,7 +5,7 @@ RSpec.describe CouchsurfService, "couchsurf" do
   context 'parse' do
     it 'must be return price and string' do
       info = subject.parse
-      expect(info[:hosts].class).to eq(Fixnum)
+      expect(info[:hosts].class).to eq(String)
       expect(info[:url].class).to eq(String)
     end
   end

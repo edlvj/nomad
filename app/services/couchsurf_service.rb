@@ -15,7 +15,7 @@ class CouchsurfService
     cap = page.xpath('/html/body/main/div[2]/div[1]/div[1]/section/div/div[1]').text
     text = cap.match(/([\d,]+)/)
     return default_value if text.nil?
-    { hosts: text.captures.first.to_i, url: url }
+    { hosts: text.captures.first, url: url }
   end
   
   private
