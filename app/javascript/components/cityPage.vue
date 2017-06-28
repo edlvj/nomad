@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="section padd" :style="{ 'background-image': 'url(' + item.image.url  + ')' }">
+  <div class="section padd" :style="{ 'background-image': 'url(' + item.image.image.url  + ')' }">
     <div class="container">
         <h1 class="text_h center">
             <span><b class="white-text">{{ item.title }}</b></span> 

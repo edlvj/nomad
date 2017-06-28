@@ -3,7 +3,7 @@ class City < ApplicationRecord
   has_many :topic
   has_one :rating
   
-#  after_save :add_geo
+  after_save :add_geo
   
   mount_uploader :image, CityImageUploader
   validates :title, presence: true

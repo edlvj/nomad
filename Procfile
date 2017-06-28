@@ -1,2 +1,2 @@
 backend: bin/rails s 
-frontend: bin/webpack-dev-server --watch
+frontend: bin/webpack-dev-server --watch --hot
