@@ -7,9 +7,9 @@
 }
 
 .padd {
-  min-height: 220px;
+  min-height: 300px;
   max-height: 250px;
-  background-repeat: no-repeat;
+  background-repeat: round;
   background-size: 100%;
 } 
 
