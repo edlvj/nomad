@@ -15,8 +15,9 @@
     <div class="col s12">
       <v-tabs>
         <v-tab class="s3" target="#rating">{{ $t('message.rating') }}</v-tab>
-        <v-tab class="s3" target="#traveler">{{ $t('message.traveler') }}</v-tab>
-        <v-tab class="s3" target="#prices">{{ $t('message.prices') }}</v-tab>
+        <v-tab class="s2" target="#traveler">{{ $t('message.traveler') }}</v-tab>
+        <v-tab class="s2" target="#prices">{{ $t('message.prices') }}</v-tab>
+        <v-tab class="s2" target="#excursion">{{ $t('message.excursion') }}</v-tab>
         <v-tab class="s3" target="#forum">{{ $t('message.forum') }}</v-tab>
       </v-tabs>
     </div>
@@ -25,6 +26,7 @@
   <traveler-tab v-bind:travel="item.traveler"></traveler-tab>
   <price-tab v-bind:price="item.price"></price-tab>
   <forum-tab v-bind:topics="item.topic" v-bind:city_id="id"></forum-tab>
+  <excursion-tab v-bind:excursions="item.excursions" ></excursion-tab>
 </div>  
 </template>
 
@@ -33,6 +35,7 @@
 import ratingTab from './tabs/ratingTab.vue'
 import travelerTab from './tabs/travelerTab.vue'
 import priceTab from './tabs/priceTab.vue'
+import excursionTab from './tabs/excursionTab.vue'
 import forumTab from './tabs/forumTab.vue'
 
 export default {
@@ -52,6 +55,7 @@ export default {
    travelerTab,
    priceTab,
    forumTab,
+   excursionTab, 
   },
   created: function() {
    this.$store.dispatch('getCity', this);

@@ -8,9 +8,8 @@ import VueI18n from 'vue-i18n'
 import Routes from './routes'
 import App from '../components/app.vue'
 
-import Stores from './stores'
+import Stores from '../vuex/stores'
 import Translate from './translation'
-const { env } = require('process')
 
 Vue.use(VueResourse);
 Vue.use(VueRouter);
@@ -57,18 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     i18n: i18n,
   })
 })
-
-
-/*
-router.beforeEach(function (transition) {
-    if (transition.meta.auth && !auth.check()) {
-      Materialize.toast('Please Login')
-    } else {
-      transition.next()
-    }
-})
-*/
-
 
 
 

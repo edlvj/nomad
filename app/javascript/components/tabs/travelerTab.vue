@@ -12,9 +12,9 @@
     </tr>
 	  <tr>
       <td>{{ $t('tabs.traveler.couchsurf')}}</td>
-		  <td><a :href="travel.couchsurf.url ">{{ travel.couchsurf.hosts }}</a></td>
+		  <td><a :href="travel.couchsurf.url"  target="_blank">{{ travel.couchsurf.hosts }}</a></td>
 		  <td>{{ $t('tabs.traveler.insurance') }}</td>
-		  <td><a href="https://insurance.tickets.ua/"><img src="/brands/tickets.png"></a></td>
+		  <td><a href="https://insurance.tickets.ua/"  target="_blank"><img src="/brands/tickets.png"></a></td>
     </tr>
     </tbody>
   </table>

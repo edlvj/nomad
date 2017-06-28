@@ -6,7 +6,7 @@ RSpec.describe GeocordService, "geocord" do
     it 'must be return float' do
       info = subject.getCord
       expect(info.lat.class).to eq(Float)
-      expect(info.lng.class).to eq(Float)
+      expect(info.long.class).to eq(Float)
     end
   end
     

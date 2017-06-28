@@ -1,5 +1,5 @@
 <template>
-    <v-grid s12 m4 l4>
+    <v-grid s12 m12 l4>
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" :src="item.image.url" alt="city">

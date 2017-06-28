@@ -5,7 +5,8 @@ export default {
       profile: 'Профіль',
       exit: 'Вихід',
       visit: 'Відвідав',
-      want_visit: 'Хоче відвідати'
+      want_visit: 'Хоче відвідати',
+      
     },
     message: {
       title: 'Nomad',
@@ -13,8 +14,10 @@ export default {
       traveler: 'Путівник',
       prices: 'Ціни',
       forum: 'Форум',
+      excursion: 'Екскурсії', 
       city: 'Місто',
-      type: 'Тип'
+      type: 'Тип',
+      show_all: 'Переглянути всі'
     },
     tabs: {
       rating:{
@@ -36,7 +39,7 @@ export default {
       },
       forum: {
         no_topic: 'Немає тем'
-      }
+      },
     },
     cities: {
       show: 'Переглянути'
@@ -77,7 +80,8 @@ export default {
       rating: 'Rating',
       traveler: 'Traveler',
       prices: 'Prices',
-      forum: 'Forum'
+      forum: 'Forum',
+      show_all: 'Show All'
     },
     tabs: {
       rating:{

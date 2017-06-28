@@ -1,20 +1,22 @@
 <template>
-<div class="navbar-fixed" id="nav_template">
+<div class="navbar-fixed">
     <nav class="cyan lighten-2" role="navigation">
         <v-container>
           <div class="nav-wrapper">
-            <a href="/"  class="brand-logo">{{ $t('message.title') }}</a>
+            <a href="/" ><img id="logo-container" class="brand-logo" src="/logo.png"></a>
+            
+            <a href="#" v-side-nav:mobile class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a v-if="!auth" v-on:click="social('facebook')">{{ $t('user.fb_login') }}</a></li>
                 <li><router-link  :to="{ name: 'user', params: { id: user_id  }}" v-if="auth">{{ $t('user.profile') }}</router-link></li>
                 <li><a v-if="auth" v-on:click="logout()">{{ $t('user.exit') }}</a></li>
             </ul>
-            <ul id="nav-mobile" class="side-nav">
-                <li><a v-if="!auth" v-on:click="social('facebook')">{{ $t('user.fb_login') }}</a></li>
-                <li><router-link  :to="{ name: 'user', params: { id: user_id  }}" v-if="auth">{{ $t('user.profile') }}</router-link></li>
-                <li><a v-if="auth" v-on:click="logout()">{{ $t('user.exit') }}</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+              <ul id="mobile" class="side-nav">
+                  <li><a v-if="!auth" v-on:click="social('facebook')">{{ $t('user.fb_login') }}</a></li>
+                  <li><router-link  :to="{ name: 'user', params: { id: user_id  }}" v-if="auth">{{ $t('user.profile') }}</router-link></li>
+                  <li><a v-if="auth" v-on:click="logout()">{{ $t('user.exit') }}</a></li>
+              </ul>
+    
           </div>
         </v-container>
     </nav>
@@ -26,10 +28,9 @@
 export default {
     data() {
         return {
-          user_id: localStorage.user_id || '',
           code: this.$route.query.code,
           provider: 'facebook',
-          auth: this.$check
+          auth: this.$check,
         };
     },
     mounted() {
@@ -37,6 +38,11 @@ export default {
         this.$store.dispatch('login_social', this);
         this.auth = true;
       }
+    },
+    computed: {
+      user_id: function () {
+        return localStorage.user_id;
+      },
     },
     methods: {
       social(provider) {

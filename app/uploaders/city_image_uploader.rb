@@ -1,5 +1,10 @@
 class CityImageUploader < CarrierWave::Uploader::Base
-  storage :file
+  
+  if Rails.env.production? 
+    storage :dropbox
+  else
+    storage :file
+  end
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"

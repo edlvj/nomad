@@ -30,3 +30,20 @@
 .collection .collection-item {
 	border-bottom: none !important;
 }
+
+#sidenav-overlay {
+  z-index: 1;
+}
+
+.vue-map {
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute  !important;
+}
+
+span.badge.new:after {
+    content: "";
+}
