@@ -12,6 +12,6 @@ class City < ApplicationRecord
   
   def add_geo
     cord = GeocordService.new(self.title_eng).getCord 
-    self.update_attributes(lat: cord.lat, long: cord.long) if !cord.nil?
+    self.update_attributes(lat: cord.lat, long: cord.long) if cord && cord.lat && cord.long
   end
 end
