@@ -1,4 +1,5 @@
 class CitySerializer < ActiveModel::Serializer
+  cache key: 'city', expires_in: 1.day 
   attributes :id, :title, :title_eng, :image, :traveler, :price, :excursions
   has_one :rating, serializer: RatingSerializer
   has_many :topic, serializer: ShortTopicSerializer

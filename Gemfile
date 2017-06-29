@@ -22,6 +22,7 @@ gem 'active_model_serializers'
 gem 'devise_token_auth'
 gem 'figaro'
 gem 'koala'
+gem 'redis-rails'
 
 gem 'webpacker'
 gem 'foreman'
