@@ -3,7 +3,7 @@
     <nav class="cyan lighten-2" role="navigation">
         <v-container>
           <div class="nav-wrapper">
-            <a href="/" ><img id="logo-container" class="brand-logo" src="/logo.png"></a>
+            <a href="/"  class="brand-logo">Nomad</a>
             
             <a href="#" v-side-nav:mobile class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
@@ -36,26 +36,33 @@ export default {
     mounted() {
       if (this.code) {
         this.$store.dispatch('login_social', this);
+        this.$router.push('/');
         this.auth = true;
       }
     },
     computed: {
       user_id: function () {
-        return localStorage.user_id;
+        if(localStorage.length != 0) {
+          return localStorage.user_id;
+        } else {
+          return this.$store.getters.user_id;
+        }
       },
     },
     methods: {
       social(provider) {
         if(this.provider == 'facebook') {
             var host = new URL(window.location.href).hostname
-            var redirect_uri = 'http://'  + host;
+            var redirect_uri = 'http://' + host;
             window.location = 'https://www.facebook.com/v2.5/dialog/oauth?client_id='+ this.$fb_client +'&redirect_uri='+ redirect_uri +'&response_type=code';  
         }
       },
       logout() {
-        this.$store.dispatch('logout', this);  
-        this.auth = false;
-      }
+        if(this.auth) {
+          this.$store.dispatch('logout', this);  
+          this.auth = false;
+        }
+      },
     }
 }    
 </script>

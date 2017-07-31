@@ -43,6 +43,7 @@ export default {
             this.rating = rate
             this.rate_type = name
             this.$store.dispatch('setRate', this);
+            this.$dialog(this.$t("rate.thx"));
         },
     } 
 }    

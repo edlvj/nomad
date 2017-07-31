@@ -7,7 +7,8 @@ export default {
       cities: [],
       city: [],
       user: [],
-      topic: []
+      topic: [],
+      user_id: '',
   },
   getters,
   mutations,

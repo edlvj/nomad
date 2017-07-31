@@ -4,7 +4,6 @@ module Api
       load_and_authorize_resource
       
       def create
-        
         if @rating.save
           render json: @rating
         else

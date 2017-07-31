@@ -6,7 +6,6 @@ export default {
       exit: 'Вихід',
       visit: 'Відвідав',
       want_visit: 'Хоче відвідати',
-      
     },
     message: {
       title: 'Nomad',
@@ -17,7 +16,8 @@ export default {
       excursion: 'Екскурсії', 
       city: 'Місто',
       type: 'Тип',
-      show_all: 'Переглянути всі'
+      show_all: 'Переглянути всі',
+      please_login: 'Будь ласка Авторизуйтесь'
     },
     tabs: {
       rating:{
@@ -63,7 +63,14 @@ export default {
     },
     comment:{
       comment: 'Комментар',
-      add: 'Додати'
+      add: 'Додати',
+      created: 'Комментар створенний'
+    },
+    rate:{
+      thx: "Дякуюємо за оцінку"
+    },
+    favorite:{
+      added: "Додано до Закладок"
     }
   },
   
@@ -81,7 +88,8 @@ export default {
       traveler: 'Traveler',
       prices: 'Prices',
       forum: 'Forum',
-      show_all: 'Show All'
+      show_all: 'Show All',
+      please_login: 'Please login'
     },
     tabs: {
       rating:{
@@ -127,7 +135,14 @@ export default {
     },
     comment:{
       comment: 'Comment',
-      add: 'Add'
+      add: 'Add',
+      created: 'comment created'
+    },
+    rate:{
+      thx: "Thx for rate"
+    },
+    favorite:{
+      added: "Added to fave"
     }
   }
 }

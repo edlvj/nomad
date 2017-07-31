@@ -39,7 +39,11 @@ Vue.http.interceptors.push(function(request, next) {
       request.headers.set('uid',  tokens.uid);
       request.headers.set('expiry', tokens.expiry.toString());
   } 
-  next();
+  next(function(response) {
+    if(response.status != 200) {
+      this.$dialog("Something went wrong");
+    }
+  });
 });
 
 Vue.prototype.$check = localStorage.access_token ? true : false

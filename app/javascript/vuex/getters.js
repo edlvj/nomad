@@ -13,3 +13,7 @@ export const user = (state) => {
 export const topic = (state) => {
     return state.topic;
 }
+
+export const user_id = (state) => {
+    return state.user_id;
+}

@@ -23,6 +23,7 @@ export default {
   methods: {
     onSubmit() {
       this.$store.dispatch('saveComment', this);
+      this.$dialog(this.$t('comment.created'));
     }
   }  
 } 

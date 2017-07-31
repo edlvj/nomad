@@ -65,8 +65,9 @@ export default {
       if(this.$check) {
         this.visited = type;
         this.$store.dispatch('setFavorite', this);
+        this.$dialog(this.$t('favorite.added'));
       } else {
-        this.$dialog("Please login");
+        this.$dialog(this.$t('message.please_login'));
       }
     },
   }
