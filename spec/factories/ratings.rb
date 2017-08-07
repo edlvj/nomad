@@ -3,4 +3,5 @@ FactoryGirl.define do
     rate 3
     rate_type "fun"
   end
+  
 end

@@ -25,7 +25,7 @@
   <rating-tab v-bind:rate="item.rating" ></rating-tab>
   <traveler-tab v-bind:travel="item.traveler"></traveler-tab>
   <price-tab v-bind:price="item.price"></price-tab>
-  <forum-tab v-bind:topics="item.topic" v-bind:city_id="id"></forum-tab>
+  <forum-tab v-bind:topics="item.topics" v-bind:city_id="id"></forum-tab>
   <excursion-tab v-bind:excursions="item.excursions" ></excursion-tab>
 </div>  
 </template>

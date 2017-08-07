@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :city do
-    title { FFaker::Address.city }
-    title_eng { title }
+    title "Berlin"
+    title_eng "Berlin"
     image '/fallback/default.png'
   end
   
