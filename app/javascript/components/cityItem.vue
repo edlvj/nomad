@@ -2,7 +2,7 @@
     <v-grid s12 m12 l4>
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" :src="item.image.image.url" alt="city">
+                <img class="activator" :src="item.image" alt="city">
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4"> {{ item.title }}<i class="mdi-navigation-more-vert right"></i></span>

@@ -1,9 +1,9 @@
 <template>
 <div>
-  <div class="section padd" :style="{ 'background-image': 'url(' + item.image.image.url  + ')' }">
+  <div class="section padd" :style="{ 'background-image': 'url(' + city.image  + ')' }">
     <div class="container">
         <h1 class="text_h center">
-            <span><b class="white-text">{{ item.title }}</b></span> 
+            <span><b class="white-text">{{ city.title }}</b></span> 
         </h1>
 		<div class="center-align">
 		  <a class="waves-effect waves-light btn-large cyan lighten-2" @click="to_visit(false)"><i class="material-icons left">query_builder</i>{{ $t('city.want_visit') }}</a>
@@ -22,15 +22,18 @@
       </v-tabs>
     </div>
   </div>
-  <rating-tab v-bind:rate="item.rating" ></rating-tab>
-  <traveler-tab v-bind:travel="item.traveler"></traveler-tab>
-  <price-tab v-bind:price="item.price"></price-tab>
-  <forum-tab v-bind:topics="item.topics" v-bind:city_id="id"></forum-tab>
-  <excursion-tab v-bind:excursions="item.excursions" ></excursion-tab>
+  <rating-tab v-bind:rate="city.rating" ></rating-tab>
+  <traveler-tab v-bind:travel="city.traveler"></traveler-tab>
+  <price-tab v-bind:price="city.price"></price-tab>
+  <forum-tab v-bind:topics="city.topics" v-bind:city_id="id"></forum-tab>
+  <excursion-tab v-bind:excursions="city.excursions" ></excursion-tab>
 </div>  
 </template>
 
 <script>
+
+import { city } from '../graphql/queries.js'
+import { addFavorite } from '../graphql/mutations.js'
 
 import ratingTab from './tabs/ratingTab.vue'
 import travelerTab from './tabs/travelerTab.vue'
@@ -38,16 +41,21 @@ import priceTab from './tabs/priceTab.vue'
 import excursionTab from './tabs/excursionTab.vue'
 import forumTab from './tabs/forumTab.vue'
 
+
 export default {
   data () {
     return {
       id: this.$route.params.id,
       visited: '',
+      city: {},
     }
   },
-  computed: {
-    item: function () {
-      return this.$store.getters.city;
+  apollo:{
+    city: {
+      query: city,
+      variables () {
+        return { id: this.$route.params.id }
+      }
     },
   },
   components: {
@@ -57,18 +65,21 @@ export default {
    forumTab,
    excursionTab, 
   },
-  created: function() {
-   this.$store.dispatch('getCity', this);
-  },
   methods: {
     to_visit(type) {
-      if(this.$check) {
-        this.visited = type;
-        this.$store.dispatch('setFavorite', this);
+      if(!this.$check) 
+        return this.$dialog(this.$t('message.please_login'));
+      
+      this.$apollo.mutate({
+        mutation: addFavorite,
+        variables: {
+          city_id: this.id,
+          visited: type,  
+        },
+      }).then(data => {
         this.$dialog(this.$t('favorite.added'));
-      } else {
-        this.$dialog(this.$t('message.please_login'));
-      }
+      });
+      
     },
   }
 }

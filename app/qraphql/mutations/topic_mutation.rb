@@ -2,7 +2,7 @@ module TopicMutation
   Create = GraphQL::Relay::Mutation.define do
     name "AddTopic"
     
-    input_field :city_id, types.String
+    input_field :city_id, types.ID
     input_field :title, types.String
     input_field :text, types.String
 

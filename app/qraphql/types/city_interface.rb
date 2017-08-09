@@ -21,7 +21,7 @@ CityInterface = GraphQL::ObjectType.define do
   
   field :ratings, RatingInterface do 
     resolve -> (obj, args, ctx) {
-      obj.rating.decorate
+      obj.rating.decorate if obj.rating
     }
   end
   
@@ -34,7 +34,7 @@ CityInterface = GraphQL::ObjectType.define do
   field :topics do 
     type types[ShortTopicInterface]
     resolve -> (obj, args, ctx) {
-      obj.topics.decorate
+      obj.topics.decorate if obj.topics
     }
   end
 end

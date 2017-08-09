@@ -14,7 +14,6 @@ RSpec.describe 'FavoriteMutation', type: :request do
             }
           }
         }|, headers: auth_headers
-  
       expect(response).to have_http_status(:ok)
     end
   end

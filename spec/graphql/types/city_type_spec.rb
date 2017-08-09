@@ -16,7 +16,9 @@ RSpec.describe 'CityType', type: :request do
       graphql_request %|
       query {
         cities { 
-          id
+          id, 
+          title,
+          image
         }
       }|
       

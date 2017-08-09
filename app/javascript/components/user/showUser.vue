@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" v-if="user">
     <div id="profile-page" class="section">
             <div id="profile-page-header" class="card">
                 <div class="card-image waves-effect waves-block waves-light" style="height: 250px;">
@@ -45,7 +45,7 @@ const VueGoogleMaps = require('vue2-google-maps');
 
 document.addEventListener('DOMContentLoaded', function() {
 Vue.use(VueGoogleMaps, {
-      load: {
+    load: {
         key: 'AIzaSyAt2nD_5eR_4G02pOEkLXv33U-ByNcVPzQ',
         v: '3',
         libraries: 'places'
@@ -54,6 +54,7 @@ Vue.use(VueGoogleMaps, {
 });
 
 import favoriteTable from './favoriteTable.vue'
+import { user } from '../../graphql/queries.js'
 
 export default {
  data () {
@@ -64,21 +65,13 @@ export default {
   components: {
     favoriteTable  
   },
-  computed: {
-    user: function () {
-      return this.$store.getters.user;
+  apollo:{
+    user: {
+      query: user,
+      variables () {
+        return { id: this.$route.params.id }
+      }
     },
-  },
-  created: function() {
-     this.$store.dispatch('getUser', this);
-  },
-  monted: function() {
-    
-  }
+  },  
 }    
 </script>
-
-<style>
-
-
-</style>

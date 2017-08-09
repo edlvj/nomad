@@ -2,8 +2,8 @@ module FavoriteMutation
   Create = GraphQL::Relay::Mutation.define do
     name "AddFavorite"
     
-    input_field :city_id, types.String
-    input_field :visited, types.Boolean
+    input_field :city_id, !types.ID
+    input_field :visited, !types.Boolean
 
     return_field :favorite, FavoriteInterface
     return_field :errors, types.String

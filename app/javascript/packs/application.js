@@ -11,11 +11,31 @@ import App from '../components/app.vue'
 import Stores from '../vuex/stores'
 import Translate from './translation'
 
+import { ApolloClient, createNetworkInterface } from 'apollo-client'
+import VueApollo from 'vue-apollo'
+
+
+const apolloClient = new ApolloClient({
+  networkInterface: createNetworkInterface({
+    uri: 'http://bezviz-edlvj.c9users.io:8080/graphql',
+    transportBatching: true,
+  }),
+  connectToDevTools: true,
+})
+
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient,
+})
+
+
+Vue.use(VueApollo)
+
 Vue.use(VueResourse);
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(Materials);
 Vue.use(VueI18n);
+
 
 const store = new Vuex.Store(Stores);
 
@@ -58,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router: router,
     store: store,
     i18n: i18n,
+    apolloProvider,
   })
 })
 

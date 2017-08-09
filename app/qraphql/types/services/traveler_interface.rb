@@ -7,7 +7,17 @@ TravelerInterface = GraphQL::ObjectType.define do
       obj[:couchsurf]
     }
   end
- 
-  field :country, types.String, hash_key: :country
-  field :region, types.String, hash_key: :region
+  
+  field :country, types.String do
+    resolve -> (obj, args, ctx) {
+      obj[:traveler][:country]
+    }
+  end 
+  
+  field :region, types.String do
+    resolve -> (obj, args, ctx) {
+      obj[:traveler][:region]
+    }
+  end 
+
 end

@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" v-if='topic'>
   <div class="row">
     <article>
 	  <h3>{{ topic.title }}</h3>
@@ -20,6 +20,8 @@
 import newComment from '../comment/newComment.vue'
 import indexComment from '../comment/indexComment.vue'
 
+import { topic } from '../../graphql/queries.js'
+
 export default {
   data() {
     return {
@@ -30,13 +32,14 @@ export default {
     newComment, 
     indexComment
   },
-  computed: {
-    topic: function () {
-      return this.$store.getters.topic;
+  apollo:{
+    topic: {
+      query: topic,
+      variables () {
+        return { id: this.$route.params.id }
+      }
     },
   },
-  mounted: function() {
-    this.$store.dispatch('getTopic', this);
-  },
+  
 } 
 </script>

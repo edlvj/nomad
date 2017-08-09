@@ -16,31 +16,29 @@
 import InfiniteLoading from 'vue-infinite-loading'
 import searchBar from './searchBar.vue'
 import cityItem from './cityItem.vue'
+import gql from 'graphql-tag'
+import { cities } from '../graphql/queries.js'
+
 
 export default {
-  data() {
-    return {
+  data: () => ({
       results: [],
       temp_count: 0,
-      per_page: 12
-    };
-  },
+      per_page: 12,
+      cities: [],
+  }),
   components: {
     searchBar, 
     cityItem,
     InfiniteLoading,
   },
-  computed: {
-    list: function () {
-      return this.$store.getters.cities;
-    },
-  },
-  created: function () {
-    this.$store.dispatch('all', this);
+  apollo:{
+    cities: {
+      query: cities,
+    }
   },
   watch: {
-    list: function (val) {
-     //fix № 1
+    cities: function (val) {
      this.results = [];
      this.temp_count = 0;
      this.onInfinite();
@@ -50,14 +48,14 @@ export default {
     onInfinite() {
      
      setTimeout(() => {
-          if(this.list.length <= this.per_page) {
-            this.results = this.list;
+          if(this.cities.length <= this.per_page) {
+            this.results = this.cities;
             return this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
           }
           
           for (let i = this.temp_count; i < this.temp_count + this.per_page; i++) {
-            if(this.list.length > i) { 
-              this.results.push(this.list[i]);
+            if(this.cities.length > i) { 
+              this.results.push(this.cities[i]);
             } else {
               return this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
             }  

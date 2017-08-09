@@ -14,6 +14,10 @@ PriceInterface = GraphQL::ObjectType.define do
       obj[:meal]
     }
   end
-  
-  field :fin_req, types.String, hash_key: :fin_req 
+
+  field :fin_req, types.String do
+    resolve -> (obj, args, ctx) {
+      obj[:price][:fin_req]
+    }
+  end  
 end

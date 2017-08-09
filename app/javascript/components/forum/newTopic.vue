@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { addTopic } from '../../graphql/mutations.js'
+
 export default { 
   data() {
     return {
@@ -33,7 +35,16 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch('saveTopic', this);
+      this.$apollo.mutate({
+        mutation: addTopic,
+        variables: {
+          title: this.topic.title,
+          city_id: this.topic.city_id,
+          text: this.topic.text,
+        },
+      }).then(data => {
+        this.$dialog("Topic created");
+      });
     }
   }  
 } 

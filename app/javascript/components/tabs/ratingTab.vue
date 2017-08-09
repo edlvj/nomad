@@ -21,6 +21,7 @@
 
 <script>
 import Rate from '../utils/rate.vue'
+import { addRating } from '../../graphql/mutations.js'
 
 export default {
     props: ['rate'],
@@ -40,10 +41,16 @@ export default {
     },
     methods: {
         onAfterRate (rate, name) {
-            this.rating = rate
-            this.rate_type = name
-            this.$store.dispatch('setRate', this);
+          this.$apollo.mutate({
+            mutation: addRating,
+            variables: {
+              city_id: this.city_id,
+              rate_type: name,  
+              rate: rate,
+            },
+          }).then(data => {
             this.$dialog(this.$t("rate.thx"));
+          });
         },
     } 
 }    
