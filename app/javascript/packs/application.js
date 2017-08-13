@@ -14,8 +14,10 @@ import Translate from './translation'
 import { ApolloClient, createNetworkInterface } from 'apollo-client'
 import VueApollo from 'vue-apollo'
 
+const root_url = process.env.NODE_ENV == 'development' ? 'http://bezviz-edlvj.c9users.io/' : 'https://nomad-ua.herokuapp.com/'
+
 const networkInterface = createNetworkInterface({
-  uri: 'http://bezviz-edlvj.c9users.io:8080/graphql',
+  uri: root_url + '/graphql',
   transportBatching: true,
 });
 
