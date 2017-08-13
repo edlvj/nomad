@@ -33,33 +33,11 @@ RSpec.describe 'CityType', type: :request do
             title_eng,
             title,
             image,
-            price{
-              airbnb{
-                price,
-                url
-              },
-              fin_req
-            },
-            traveler {
-              couchsurf {
-                hosts,
-                url
-              },  
-              country,
-              region
-            },
             ratings{
               fun_avg,
               quality_life_avg,
               safe_avg,
               toward_avg
-            },
-            excursions{
-              data {
-                title,
-                url
-              },
-              url,
             },
             topics{
               id,
@@ -69,8 +47,6 @@ RSpec.describe 'CityType', type: :request do
             }
           }
         }|
-        
-      
       expect(response).to have_http_status(:ok)
     end
   end

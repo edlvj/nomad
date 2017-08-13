@@ -16,33 +16,11 @@ export const city =
       title_eng,
       title,
       image,
-      price{
-        airbnb{
-          price,
-          url
-        },
-        fin_req
-      },
-      traveler {
-        couchsurf {
-          hosts,
-          url
-        },  
-        country,
-        region
-      },
-      ratings{
+      rating{
         fun_avg,
         quality_life_avg,
         safe_avg,
         toward_avg
-      },
-      excursions{
-        data {
-          title,
-          url
-        },
-        url,
       },
       topics{
         id,
@@ -91,6 +69,46 @@ export const user =
       }
     }
   }`;
+  
+export const cityTraveler = 
+  gql`query City_traveler($id: ID!){
+    city_traveler(id: $id) {
+      couchsurf {
+        hosts,
+        url
+      },  
+      country,
+      region
+    }
+  }`;
+  
+export const cityPrice = 
+  gql`query City_price($id: ID!){
+    city_price(id: $id) {
+      airbnb {
+        price,
+        url
+      },
+      meal {
+        price,
+        url
+      },
+      fin_req
+    }
+  }`;
+  
+export const cityExcursion = 
+  gql`query city_excursions($id: ID!){
+    city_excursions(id: $id) {
+      data {
+        title,
+        url
+      },
+      url
+    }
+  }`;
+ 
+ 
  
  
  

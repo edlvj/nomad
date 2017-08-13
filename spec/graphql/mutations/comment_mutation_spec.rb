@@ -1,3 +1,4 @@
+requireT 'pry'
 RSpec.describe 'CommentMutation', type: :request do
   subject { create :topic }
   let(:user) { create :user}

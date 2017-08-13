@@ -38,4 +38,28 @@ QueryType = GraphQL::ObjectType.define do
     }
   end
   
+  field :city_price do
+    type PriceInterface
+    argument :id, !types.ID
+    resolve -> (obj, args, ctx) {
+      City.find(args[:id])
+    }
+  end 
+  
+  field :city_traveler do
+    type TravelerInterface
+    argument :id, !types.ID
+    resolve -> (obj, args, ctx) {
+      City.find(args[:id])
+    }
+  end 
+  
+  field :city_excursions do
+    type ExcursionInterface
+    argument :id, !types.ID
+    resolve -> (obj, args, ctx) {
+      object = City.find(args[:id])
+      ExpediaService.new(object.title_eng, object.country.title_eng).parse(object.lat, object.long)
+    }
+  end 
 end

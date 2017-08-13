@@ -6,28 +6,10 @@ CityInterface = GraphQL::ObjectType.define do
   field :title, types.String
   field :title_eng, types.String
   field :image, types.String
-  
-  field :price, PriceInterface do 
+
+  field :rating, RatingInterface do 
     resolve -> (obj, args, ctx) {
-      obj.decorate.price
-    }
-  end
-  
-  field :traveler, TravelerInterface do 
-    resolve -> (obj, args, ctx) {
-      obj.decorate.traveler
-    }
-  end
-  
-  field :ratings, RatingInterface do 
-    resolve -> (obj, args, ctx) {
-      obj.rating.decorate if obj.rating
-    }
-  end
-  
-  field :excursions, ExcursionInterface do 
-    resolve -> (obj, args, ctx) {
-      obj.decorate.excursions
+      obj.rating.decorate
     }
   end
   

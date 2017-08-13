@@ -2,7 +2,7 @@ class CommentDecorator < Drape::Decorator
   delegate_all
   
   def user_image
-    object.user.image
+    object.user ? object.user.image : '/fallback/user_default.jpg'
   end
   
   def created_at

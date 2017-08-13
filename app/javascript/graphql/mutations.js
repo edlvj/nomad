@@ -10,17 +10,17 @@ export const addFavorite =
   }`;
   
 export const addTopic = 
-  gql`mutation addTopic($city_id: ID!, $title: String!, $text: String!) {
+  gql`mutation addTopic($city_id: ID, $title: String, $text: String) {
     addTopic(input: {city_id: $city_id, title: $title, text: $text }) {
       topic{
         id
       }
-     }
+    }
   }`;  
   
 export const addRating = 
-  gql`mutation addRating($city_id: ID!, $rate: Int!, $rate_type: String!) {
-    addRating(input: {city_id: $city_id, rate: 3, rate_type: $rate_type }) {
+  gql`mutation addRating($city_id: ID, $rate: Int, $rate_type: String) {
+    addRating(input: {city_id: $city_id, rate: $rate, rate_type: $rate_type }) {
       rating{
         id
       }
@@ -28,7 +28,7 @@ export const addRating =
   }`;
   
 export const addComment = 
-  gql`mutation addRating($topic_id: String!, $text: String!) {
+  gql`mutation addComment($topic_id: ID, $text: String!) {
     addComment(input: {topic_id: $topic_id, text: $text }) {
       comment{
         id

@@ -14,10 +14,11 @@
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading'
-import searchBar from './searchBar.vue'
-import cityItem from './cityItem.vue'
+import searchBar from '../layout/searchBar.vue'
+import cityItem from '../city/_city.vue'
 import gql from 'graphql-tag'
-import { cities } from '../graphql/queries.js'
+
+import { cities } from '../../graphql/queries.js'
 
 
 export default {

@@ -3,7 +3,7 @@ class RatingDecorator < Drape::Decorator
 
   Rating::RATING_TYPES.each do |type|
     define_method("#{type}_avg") do 
-      Rating.where(rate_type: type, city_id: object.city.id ).average(:rate).to_i
+      Rating.where(rate_type: type, city_id: object.city.id ).average(:rate).to_i || 0
     end
   end 
   

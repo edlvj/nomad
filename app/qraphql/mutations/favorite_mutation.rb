@@ -9,8 +9,6 @@ module FavoriteMutation
     return_field :errors, types.String
 
     resolve ->(object, inputs, ctx) {
-      return { errors: 'Please login' } if ctx[:current_user].nil?
-      
       favorite = Favorite.find_or_initialize_by(user: ctx[:current_user], city_id: inputs[:city_id])
 
       if favorite.save

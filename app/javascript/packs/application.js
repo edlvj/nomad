@@ -14,12 +14,30 @@ import Translate from './translation'
 import { ApolloClient, createNetworkInterface } from 'apollo-client'
 import VueApollo from 'vue-apollo'
 
+const networkInterface = createNetworkInterface({
+  uri: 'http://bezviz-edlvj.c9users.io:8080/graphql',
+  transportBatching: true,
+});
+
+networkInterface.use([{
+  applyMiddleware(req, next) {
+    if (!req.options.headers) {
+      req.options.headers = {};  // Create the header object if needed.
+    }
+    
+    if(localStorage.access_token) {
+      var tokens = JSON.parse(localStorage.access_token);
+      req.options.headers['access-token'] = tokens.auth_token;
+      req.options.headers['client'] = tokens.client_id;
+      req.options.headers['uid'] =  tokens.uid;
+      req.options.headers['expiry'] = tokens.expiry.toString();
+    } 
+    next();
+  }
+}]);
 
 const apolloClient = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: 'http://bezviz-edlvj.c9users.io:8080/graphql',
-    transportBatching: true,
-  }),
+  networkInterface: networkInterface,
   connectToDevTools: true,
 })
 
@@ -51,6 +69,7 @@ const i18n = new VueI18n({
   messages: Translate, 
 }) 
 
+/*
 Vue.http.interceptors.push(function(request, next) {
   if(localStorage.access_token) {
       var tokens = JSON.parse(localStorage.access_token);
@@ -65,6 +84,7 @@ Vue.http.interceptors.push(function(request, next) {
     }
   });
 });
+*/
 
 Vue.prototype.$check = localStorage.access_token ? true : false
 Vue.prototype.$fb_client = process.env.NODE_ENV == 'development' ? '1325792587499156' : '1896678157266601' 

@@ -1,6 +1,6 @@
 module GraphqlRequest
-  def graphql_request(data, headers: nil)
-    post '/graphql', params: "query= #{data}", headers: headers
+  def graphql_request(data, headers: nil, variables: nil)
+    post '/graphql', params: "query= #{data}, variables= #{ variables }", headers: headers
   end
   
 end
