@@ -14,7 +14,10 @@
 </template>
 
 <script>
+import { cities } from '../../graphql/queries.js'
+
 export default {
+  props: ['value'],
   data() {
     return {
       query: ''
@@ -22,7 +25,14 @@ export default {
   },
   methods: {
     search() {
-      this.$store.dispatch('search', this);
+      this.$apollo.query({
+        query: cities,
+        variables: {
+          search: this.query
+        }
+      }).then(data => {
+        this.$emit('input', data.data.cities)
+      });
     }
   },
  

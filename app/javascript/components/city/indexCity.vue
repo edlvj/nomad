@@ -1,6 +1,6 @@
 <template>
   <div id="city_list">
-    <search-bar></search-bar>
+    <search-bar v-model="cities"></search-bar>
     <div class="section scrollspy">
       <v-container>
         <v-row>
@@ -65,6 +65,9 @@ export default {
         this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
       }, 1000); 
     },
+    replace_cities(city) {
+      console.log(city);
+    }
     
   },
   

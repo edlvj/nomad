@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const cities = 
-  gql`query {
-    cities { 
+  gql`query cities($search: String) {
+    cities(search: $search) { 
       id, 
       title,
       image
