@@ -1,9 +1,29 @@
+body {
+  background-image:linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);
+}
+
+.collection .collection-item {
+  background-color: transparent !important;
+}
+
+a {
+  color: #000000;
+}
+
+.tabs {
+  background-color: transparent !important;
+}
+nav {
+  
+  background: linear-gradient(45deg,#30496B,#30B8D2);
+}
+
 .tabs .indicator { 
-  background-color: #b1dcfb;
+  background-color: black;
 }
 
 .tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active {
-    color: #0089ec !important;
+    color: #000 !important;
 }
 
 .padd {

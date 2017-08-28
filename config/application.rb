@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module Bezviz
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join("app", "qraphql/types")
+    config.autoload_paths << Rails.root.join("app", "qraphql/types/services")
+    config.autoload_paths << Rails.root.join("app", "qraphql/mutations")
+    
     config.middleware.use Rack::Cors do
       allow do
         origins '*'

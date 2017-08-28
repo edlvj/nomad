@@ -1,6 +1,6 @@
 class City < ApplicationRecord
   belongs_to :country
-  has_many :topic
+  has_many :topics
   has_one :rating
   
   after_save :add_geo

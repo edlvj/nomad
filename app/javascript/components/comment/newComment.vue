@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import { addComment } from '../../graphql/mutations.js'
+
 export default {
   props: ['topic_id'],
   data() {
@@ -22,8 +24,15 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch('saveComment', this);
-      this.$dialog(this.$t('comment.created'));
+      this.$apollo.mutate({
+        mutation: addComment,
+        variables: {
+          topic_id: this.topic_id,
+          text: this.text,
+        },
+      }).then(data => {
+        this.$dialog(this.$t('comment.created'));
+      });
     }
   }  
 } 

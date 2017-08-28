@@ -1,5 +1,5 @@
 <template>
-    <div id="prices" class="col s12">
+    <div id="prices" class="col s12" v_if="price">
       <table class="centered responsive-table">
         <thead>  
         </thead>

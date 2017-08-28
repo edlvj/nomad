@@ -23,6 +23,8 @@ gem 'devise_token_auth'
 gem 'figaro'
 gem 'koala'
 gem 'redis-rails'
+gem 'graphql'
+gem 'drape'
 
 gem 'webpacker'
 gem 'foreman'
@@ -36,6 +38,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
+  gem 'pry', require: false
+  gem 'graphiql-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'

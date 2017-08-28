@@ -5,7 +5,8 @@
     <form class="col s12"  v-on:submit.prevent="onSubmit">
       <div class="row">
         <div class="input-field col s12">
-          <input id="title" v-model="topic.title" required>
+          <input id="title"   type="text" v-model="topic.title" required>
+          <label for="title">{{ $t('topic.title') }}</label>
         </div>
       </div>
 	  <div class="row">
@@ -21,6 +22,8 @@
 </template>
 
 <script>
+import { addTopic } from '../../graphql/mutations.js'
+
 export default { 
   data() {
     return {
@@ -33,7 +36,17 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch('saveTopic', this);
+      this.$apollo.mutate({
+        mutation: addTopic,
+        variables: {
+          title: this.topic.title,
+          city_id: this.topic.city_id,
+          text: this.topic.text,
+        },
+      }).then(data => {
+        this.$dialog("Topic created");
+        this.$router.push({path: '/topic/' + data.data.addTopic.topic.id})
+      });
     }
   }  
 } 
