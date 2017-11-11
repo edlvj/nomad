@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'shoulda', '>= 3.4.0'
   gem 'with_model'
+  gem 'rails-erd', require: false
   gem 'byebug', platform: :mri
 end
 
