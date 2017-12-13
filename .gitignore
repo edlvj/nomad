@@ -26,3 +26,6 @@
 /config/application.yml
 
 Procfile
+/public/packs
+/public/packs-test
+/node_modules

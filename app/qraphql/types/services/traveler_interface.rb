@@ -1,5 +1,5 @@
 TravelerInterface = GraphQL::ObjectType.define do
-  name "Traveler Interface"
+  name "TravelerInterface"
  
   field :couchsurf do
     type CouchsurfInterface

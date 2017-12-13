@@ -1,5 +1,5 @@
 FavoriteInterface = GraphQL::ObjectType.define do
-  name "Favorite"
+  name "favorite"
 
   field :id, types.ID
   field :city, types.String

@@ -1,8 +1,8 @@
-CITIES_AMOUNT_IN_COUNTRY = 10
+CITIES_AMOUNT_IN_COUNTRY = 2
 
-#User.find_or_create_by! email: 'admin@bezviz.com',
- #           password: '111111',
- #           admin: true
+# User.find_or_create_by! email: 'admin@nomad.com',
+#            password: '111111',
+#            admin: true
 
 ['Europe', 'America', 'Asia'].each do |t|
   Region.find_or_create_by! title: t
@@ -16,7 +16,7 @@ end
 
 Country.find_each do |country|
   FinRequirement.find_or_create_by! country_id: country.id,
-                                    cost: '23'
+                                    cost: 23
   
   CITIES_AMOUNT_IN_COUNTRY.times do
     City.find_or_create_by! title: FFaker::AddressUA.city,

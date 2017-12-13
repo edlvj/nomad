@@ -20,5 +20,4 @@ module RatingMutation
       end
     }
   end
-  
 end

@@ -1,5 +1,5 @@
 QueryType = GraphQL::ObjectType.define do
-  name "Query"
+  name "query"
   description "The query root for this schema"
   
   field :cities do

@@ -1,5 +1,5 @@
 PriceInterface = GraphQL::ObjectType.define do
-  name "Price Interface"
+  name "PriceInterface"
   
   field :airbnb do
     type ServiceInterface
