@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20170626195951) do
     t.datetime "updated_at",                           null: false
     t.string   "image"
     t.string   "title_eng"
-    t.decimal  "lat",        precision: 15, scale: 13
-    t.decimal  "long",       precision: 15, scale: 13
+    t.decimal  "lat",        precision: 15, scale: 10
+    t.decimal  "long",       precision: 15, scale: 10
     t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
   end
 

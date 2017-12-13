@@ -1,5 +1,5 @@
 ExcursionInterface = GraphQL::ObjectType.define do
-  name "Excursion Interface"
+  name "ExcursionInterface"
   
   field :data do
     type types[ExcursionDataInterface]

@@ -7,8 +7,10 @@ default: &default
 
 development:
   <<: *default
-  database: bezviz_development
+  database: nomad_development
   template: template0
+  username: postgres
+  password: 123
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -41,8 +43,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: bezviz_test
+  database: nomad_test
   template: template0
+  username: postgres
+  password: 123
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -64,6 +68,6 @@ test:
 #
 production:
   <<: *default
-  database: bezviz_production
-  username: bezviz
-  password: <%= ENV['BEZVIZ_DATABASE_PASSWORD'] %>
+  database: nomad_production
+  username: nomad
+  password: <%= ENV['NOMAD_DATABASE_PASSWORD'] %>

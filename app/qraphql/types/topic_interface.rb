@@ -1,5 +1,5 @@
 TopicInterface = GraphQL::ObjectType.define do
-  name "Topic Interface"
+  name "topic"
   
   field :id, types.ID
   field :title, types.String

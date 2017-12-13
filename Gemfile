@@ -23,10 +23,10 @@ gem 'devise_token_auth'
 gem 'figaro'
 gem 'koala'
 gem 'redis-rails'
-gem 'graphql'
+gem 'graphql', '1.7.7'
 gem 'drape'
 
-gem 'webpacker'
+gem 'webpacker', '2.0'
 gem 'foreman'
 gem 'rails_admin'
 gem 'omniauth'
@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'shoulda', '>= 3.4.0'
   gem 'with_model'
+  gem 'rails-erd', require: false
   gem 'byebug', platform: :mri
 end
 

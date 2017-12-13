@@ -19,5 +19,4 @@ module TopicMutations
       end
     }
   end
-  
 end
