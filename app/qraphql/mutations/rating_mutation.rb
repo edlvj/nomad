@@ -9,8 +9,7 @@ module RatingMutation
     return_field :rating, RatingInterface
     return_field :errors, types.String
 
-    resolve ->(object, inputs, ctx) {
-
+    resolve ->(object, inputs, ctx) {s
       rating = Rating.new(city_id: inputs[:city_id], rate: inputs[:rate], rate_type: inputs[:rate_type])
 
       if rating.save

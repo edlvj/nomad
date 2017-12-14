@@ -11,7 +11,7 @@
       </p>
     </li>
   </ul>	
-  <div class="center-align" v-if="$check"> 
+  <div class="center-align" v-if="this.$auth.check()"> 
     <router-link  class="btn waves-effect waves-light" :to="'/city/' + this.city_id +'/topic/new'">Створити нову тему</router-link>
   </div>  
 </div>    
