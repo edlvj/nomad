@@ -113,7 +113,7 @@ export default {
       });
     },
     to_visit(type) {
-      if(!this.$check) 
+      if(!this.$auth.check()) 
         return this.$dialog(this.$t('message.please_login'));
       
       this.$apollo.mutate({

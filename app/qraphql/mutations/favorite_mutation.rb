@@ -10,7 +10,8 @@ module FavoriteMutation
 
     resolve ->(object, inputs, ctx) {
       favorite = Favorite.find_or_initialize_by(user: ctx[:current_user], city_id: inputs[:city_id])
-
+      favorite.visited = inputs[:visited]
+      
       if favorite.save
         { favorite: favorite }
       else
