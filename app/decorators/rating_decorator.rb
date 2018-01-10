@@ -6,5 +6,4 @@ class RatingDecorator < Drape::Decorator
       Rating.where(rate_type: type, city_id: object.city.id ).average(:rate).to_i || 0
     end
   end 
-  
 end

@@ -1,5 +1,5 @@
 CommentInterface = GraphQL::ObjectType.define do
-  name "comment"
+  name "Comment"
 
   field :id, types.ID
   field :text, types.String

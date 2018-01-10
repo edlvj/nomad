@@ -12,7 +12,7 @@
     </li>
   </ul>	
   <div class="center-align" v-if="this.$auth.check()"> 
-    <router-link  class="btn waves-effect waves-light" :to="'/city/' + this.city_id +'/topic/new'">Створити нову тему</router-link>
+    <router-link  class="btn waves-effect waves-light" :to="'/city/' + this.city_id +'/topic/new'">{{ $t('topic.add') }}</router-link>
   </div>  
 </div>    
 </template>    

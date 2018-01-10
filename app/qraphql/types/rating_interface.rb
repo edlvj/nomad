@@ -1,5 +1,5 @@
 RatingInterface = GraphQL::ObjectType.define do
-  name "rating"
+  name "Rating"
   field :id, types.ID
   
   field :fun_avg, types.Float

@@ -1,9 +1,6 @@
 class CityImageUploader < CarrierWave::Uploader::Base
-  
-  if Rails.env.production? 
-    storage :dropbox
-  else
-    storage :file
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
   end
 
   def store_dir

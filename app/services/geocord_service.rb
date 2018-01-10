@@ -16,5 +16,4 @@ class GeocordService
     end
     self
   end
-
 end

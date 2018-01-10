@@ -9,5 +9,4 @@ RSpec.describe CouchsurfService, "couchsurf" do
       expect(info[:url].class).to eq(String)
     end
   end
-    
 end
