@@ -2,7 +2,6 @@ require 'nokogiri'
 require 'open-uri'
    
 class CouchsurfService
-  
   def initialize(city)
     @city = city
   end  

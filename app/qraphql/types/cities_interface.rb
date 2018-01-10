@@ -1,5 +1,5 @@
 CitiesInterface = GraphQL::ObjectType.define do
-  name "cities"
+  name "Cities"
   description "A cities"
 
   field :id, types.ID

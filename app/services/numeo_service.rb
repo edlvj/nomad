@@ -14,5 +14,3 @@ class NumeoService
     { price: price.to_i, url: url }
   end
 end
-
-

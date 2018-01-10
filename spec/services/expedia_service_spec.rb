@@ -8,6 +8,5 @@ RSpec.describe ExpediaService, "expedia" do
       expect(info[:data].class).to eq(Array)
       expect(info[:url].class).to eq(String)
     end
-  end
-    
+  end  
 end

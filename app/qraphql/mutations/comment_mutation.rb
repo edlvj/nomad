@@ -18,5 +18,4 @@ module CommentMutation
       end
     }
   end
- 
 end

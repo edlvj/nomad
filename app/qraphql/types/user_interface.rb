@@ -1,5 +1,5 @@
 UserInterface = GraphQL::ObjectType.define do
-  name "user"
+  name "User"
 
   field :id, types.ID
   field :nickname, types.String

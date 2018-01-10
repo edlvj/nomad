@@ -61,7 +61,7 @@ const router = new VueRouter({
 })
 
 const i18n = new VueI18n({
-  locale: 'ua', 
+  locale: localStorage.lang ? localStorage.lang : 'ua', 
   messages: Translate, 
 });
 
@@ -79,3 +79,4 @@ document.addEventListener('DOMContentLoaded', () => {
     apolloProvider,
   })
 })
+

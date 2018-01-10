@@ -1,5 +1,5 @@
 ShortTopicInterface = GraphQL::ObjectType.define do
-  name "short"
+  name "Short"
   
   field :id, types.ID
   field :title, types.String

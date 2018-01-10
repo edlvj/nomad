@@ -1,6 +1,7 @@
 export default { 
   ua: {
     user: {
+      lang: "Мова",
       fb_login: 'Увійти через Facebook',
       profile: 'Профіль',
       exit: 'Вихід',
@@ -76,6 +77,7 @@ export default {
   
   en: {
     user: {
+      lang: "Language",
       fb_login: 'Enter with facebook',
       profile: 'Profile',
       exit: 'Exit',
@@ -87,6 +89,7 @@ export default {
       rating: 'Rating',
       traveler: 'Traveler',
       prices: 'Prices',
+      excursion: 'Excursions',
       forum: 'Forum',
       show_all: 'Show All',
       please_login: 'Please login'
@@ -105,7 +108,7 @@ export default {
         insurance: 'Insurance'
       },
       price: {
-        airbnb: 'Airbnb appaetament ',
+        airbnb: 'Airbnb appartament ',
         meal: 'Basic Meal (in restorans)',
         fin_req: 'Price on a day'
       },
@@ -126,7 +129,7 @@ export default {
       Asia: 'Asia'
     },
     topic: {
-      add_topic: 'Create Topic',
+      add: 'Create Topic',
       title: 'Title',
       text: 'Text',
       choose_city: 'Choose city',
