@@ -1,8 +1,8 @@
-import indexCity from '../components/city/indexCity.vue'
-import showCity from '../components/city/showCity.vue'
-import newTopic from '../components/forum/newTopic.vue'
-import showTopic from '../components/forum/showTopic.vue'
-import showUser from '../components/user/showUser.vue'
+import indexCity from './components/city/indexCity.vue'
+import showCity from './components/city/showCity.vue'
+import newTopic from './components/forum/newTopic.vue'
+import showTopic from './components/forum/showTopic.vue'
+import showUser from './components/user/showUser.vue'
 
 export default [
     { path: '/', component: indexCity },

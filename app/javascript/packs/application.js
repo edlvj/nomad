@@ -5,13 +5,13 @@ import Materials from 'vue-materials'
 import VueI18n from 'vue-i18n'
 
 import Routes from './routes'
-import App from '../components/app.vue'
+import App from './components/app.vue'
 
 import Translate from './translation'
 
 import { ApolloClient, createNetworkInterface } from 'apollo-client'
 import VueApollo from 'vue-apollo'
-import Auth from '../services/auth'
+import Auth from './services/auth'
 
 const root_url = process.env.NODE_ENV == 'development' ? 'http://localhost:5000' : 'https://nomad-ua.herokuapp.com'
 
