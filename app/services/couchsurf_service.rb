@@ -16,7 +16,7 @@ class CouchsurfService
     { hosts: text.captures.first, url: url }
   end
   
-  private
+  private  
   
   def default_value
     {hosts: 0, url: 'https://www.couchsurfing.com'}

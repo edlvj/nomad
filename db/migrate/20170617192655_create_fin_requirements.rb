@@ -1,7 +1,7 @@
 class CreateFinRequirements < ActiveRecord::Migration[5.0]
   def change
     create_table :fin_requirements do |t|
-      t.integer :country_id
+      t.integer :country_id, index: true, foreign_key: true
       t.string :cost
       t.timestamps
     end
